@@ -1,10 +1,13 @@
 <script>
-    import Header from '$lib/components/layout/Header.svelte'
 	import '$lib/global.css';
-	const { children } = $props();
+
+    import Topbar from '$lib/components/layout/Topbar.svelte';
+	
+	const { data, children } = $props();
+	const { user } = data;
 </script>
 
 <main class="bg-base-200 overflow-auto flex flex-col min-h-screen">
-	<Header />
+	<Topbar {user}/>
 	{@render children()}
 </main>
