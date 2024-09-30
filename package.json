@@ -1,18 +1,28 @@
 {
 	"name": "svelte-node-app",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"prod-run": "node build",
 		"preview": "vite preview",
-		"sync": "svelte-kit sync"
+		"sync": "svelte-kit sync",
+		"clean": "find . \\( -name \"node_modules\" -o -name \"dist\" -o -name \"build\" -o -name \".svelte-kit\" \\) -type d -prune -exec rm -rf '{}' +"
+	},
+	"dependencies": {
+		"@lucia-auth/adapter-postgresql": "^3.1.2",
+		"arctic": "^1.9.2",
+		"lucia": "^3.2.0",
+		"pg": "^8.13.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^5.2.5",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+		"@types/node": "^22.7.4",
+		"@types/pg": "^8.11.8",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.10",
 		"svelte": "^5.0.0-next.1",

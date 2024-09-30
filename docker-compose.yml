@@ -1,0 +1,20 @@
+volumes:
+  postgres-data:
+  prometheus-data:
+  grafana-data:
+
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+        - '5432:5432' # Map container port 5432 to host port 5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Mount volume to persist PostgreSQL data
